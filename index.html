@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/logo-small.svg"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/components/header.css" />
+    <link rel="stylesheet" href="./styles/components/options.css" />
+    <link rel="stylesheet" href="./styles/components/typing.css" />
+    <link rel="stylesheet" href="./styles/components/restart.css" />
+    <link rel="stylesheet" href="./styles/components/results.css" />
+    <link rel="stylesheet" href="./styles/components/attribution.css" />
+    <link rel="stylesheet" href="./styles/utils.css" />
+
+    <title>Frontend Mentor | Typing Speed Test</title>
+  </head>
+  <body>
+    <header class="header container">
+      <img
+        src="./assets/images/logo-large.svg"
+        alt="logo-large"
+        class="header__logo-large"
+      />
+      <img
+        src="./assets/images/logo-small.svg"
+        alt="logo-small"
+        class="header__logo-small"
+      />
+
+      <div class="header__record">
+        <img
+          src="./assets/images/icon-personal-best.svg"
+          alt=""
+          class="header__record-icon"
+        />
+        <p class="header__best-record-full">Personal Best:</p>
+        <p class="header__best-record">Best:</p>
+        <span id="personal-best"></span>
+        <button class="btn header__btn">Reset</button>
+      </div>
+    </header>
+
+    <section class="options container">
+      <div class="options__scores">
+        <span class="options__title">WPM:<strong id="wpm"></strong></span>
+        <span class="options__title"
+          >Accuracy:<strong id="accuracy"></strong
+        ></span>
+        <span class="options__title">Time:<strong id="time"></strong></span>
+      </div>
+
+      <div class="options__btn-container">
+        <div class="options__difficulty">
+          <span class="options__title">Difficulty:</span>
+          <button class="btn options__btn active" data-difficulty="easy">
+            Easy
+          </button>
+          <button class="btn options__btn" data-difficulty="medium">
+            Medium
+          </button>
+          <button class="btn options__btn" data-difficulty="hard">Hard</button>
+        </div>
+        <div class="options__mode">
+          <span class="options__title">Mode:</span>
+          <button class="btn options__btn active" data-mode="timed">
+            Timed(15s)
+          </button>
+          <button class="btn options__btn" data-mode="passage">Passage</button>
+        </div>
+      </div>
+
+      <div class="options__select-container">
+        <select name="difficulty" id="difficulty">
+          <button><selectedcontent></selectedcontent></button>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select name="mode" id="mode">
+          <button><selectedcontent></selectedcontent></button>
+          <option value="timed">Timed(60s)</option>
+          <option value="passage">Passage</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="typing container">
+      <input type="text" class="typing__input" />
+      <div class="typing__text"></div>
+      <div class="typing__start">
+        <button class="btn typing__start-btn">Start Typing Test</button>
+        <p class="typing__start-description">
+          Or click the text and start typing
+        </p>
+      </div>
+    </section>
+
+    <section class="restart container hidden">
+      <button class="btn restart__btn">
+        Restart Test<img src="./assets/images/icon-restart.svg" alt="restart" />
+      </button>
+    </section>
+
+    <section class="results container hidden">
+      <div class="results__icons">
+        <div class="results__icon-completed">
+          <img
+            src="./assets/images/icon-completed.svg"
+            alt="completed"
+            class="icon"
+          />
+        </div>
+        <img
+          src="./assets/images/icon-new-pb.svg"
+          alt="new-pb"
+          class="icon results__icon-new-pb hidden"
+        />
+      </div>
+      <h2 class="results__title">Test Complete!</h2>
+      <p class="results__description">
+        Solid run. Keep pushing to beat your high score.
+      </p>
+      <div class="results__container">
+        <div class="results__box">
+          WPM:
+          <div id="result-wpm"></div>
+        </div>
+        <div class="results__box">
+          Accuracy:
+          <div id="result-accuracy"></div>
+        </div>
+        <div class="results__box">
+          Characters:
+          <div class="results__characters">
+            <span id="result-characters-correct"></span>
+            /
+            <span id="result-characters-incorrect"></span>
+          </div>
+        </div>
+      </div>
+      <button class="btn results__btn">
+        <span class="results__btn-text">Beat This Score</span>
+        <img src="./assets/images/icon-restart.svg" alt="restart" />
+      </button>
+      <div class="results__deco-stars">
+        <img
+          src="./assets/images/pattern-star-1.svg"
+          alt="star1"
+          class="deco results__star1"
+        />
+        <img
+          src="./assets/images/pattern-star-2.svg"
+          alt="star2"
+          class="deco results__star2"
+        />
+      </div>
+      <div class="results__deco-confetti hidden">
+        <img
+          src="./assets/images/pattern-confetti.svg"
+          alt="confetti"
+          class="deco results__confetti"
+        />
+      </div>
+    </section>
+
+    <!-- <div class="attribution container">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">kongwv</a>.
+    </div> -->
+    <script src="script.js"></script>
+  </body>
+</html>

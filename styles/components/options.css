@@ -1,0 +1,249 @@
+.options {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(240, 3%, 46%);
+}
+
+.options__scores {
+  display: flex;
+  font-size: 1.2rem;
+  gap: 3rem;
+  flex: 1;
+}
+
+.options__title {
+  color: hsl(240, 1%, 59%);
+}
+
+.options__scores .options__title {
+  position: relative;
+}
+
+.options__scores .options__title:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1.5rem;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: hsl(240, 3%, 46%);
+}
+
+#wpm,
+#accuracy,
+#time {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.options__btn-container {
+  display: flex;
+}
+
+.options__difficulty {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  border-right: 1px solid hsl(240, 3%, 46%);
+}
+
+.options__mode {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.options__difficulty .options__title,
+.options__mode .options__title {
+  margin-right: 0.8rem;
+}
+
+.options__btn {
+  color: hsl(0, 0%, 100%);
+  background-color: transparent;
+  border: 1px solid hsl(240, 1%, 59%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.options__btn.active {
+  border-color: hsl(210, 100%, 65%);
+  color: hsl(210, 100%, 65%);
+}
+
+.options__btn:hover {
+  border-color: hsl(210, 100%, 65%);
+  color: hsl(210, 100%, 65%);
+}
+
+.options__select-container {
+  display: none;
+  width: 100%;
+  gap: 10px;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+  border-radius: 7px;
+}
+
+select {
+  display: flex;
+  align-items: center;
+  padding-inline: 0.5rem;
+  flex: 1;
+  border: 1px solid hsl(240, 3%, 46%);
+  height: 2rem;
+}
+
+select::picker-icon {
+  color: hsl(0, 0%, 80%);
+}
+
+::picker(select) {
+  border: none;
+  margin-top: 0.3rem;
+}
+
+selectedcontent,
+option {
+  font-size: 0.8rem;
+  color: hsl(0, 0%, 80%);
+}
+
+option {
+  padding: 0.25rem;
+  border-bottom: 1px solid hsl(240, 1%, 59%);
+  background-color: hsl(0, 0%, 15%);
+  height: 2rem;
+}
+
+option:last-of-type {
+  border-bottom: none;
+}
+
+option::checkmark {
+  content: "✅";
+}
+
+option:hover {
+  background-color: hsl(0, 0%, 25%);
+}
+
+/* 2xl */
+/* @media (max-width: 1536px) {} */
+
+/* xl */
+@media (max-width: 1280px) {
+  .options__scores {
+    font-size: 1rem;
+    gap: 2rem;
+  }
+
+  #wpm,
+  #accuracy,
+  #time {
+    font-size: 1.3rem;
+    margin-left: 0.8rem;
+  }
+
+  .options__difficulty {
+    gap: 0.4rem;
+    padding-right: 0.8rem;
+    margin-right: 0.8rem;
+  }
+
+  .options__mode {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .options__difficulty .options__title,
+  .options__mode .options__title {
+    margin-right: 0.4rem;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .options {
+    flex-direction: column;
+  }
+
+  .options__scores {
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .options__btn-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .options__scores .options__title:not(:last-child)::after {
+    display: none;
+  }
+
+  .options__difficulty {
+    border: none;
+  }
+}
+
+/* md */
+/* @media (max-width: 768px) {} */
+
+/* sm */
+@media (max-width: 640px) {
+  .options {
+    margin-top: 2rem;
+  }
+
+  .options__btn-container {
+    display: none;
+  }
+
+  .options__select-container {
+    display: flex;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .options__scores {
+    justify-content: center;
+    gap: 4.5rem;
+  }
+
+  .options__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .options__scores .options__title:not(:last-child)::after {
+    height: 3rem;
+    right: calc(-1 * (4.5rem / 2));
+  }
+
+  .options__scores .options__title:not(:last-child)::after {
+    display: block;
+  }
+
+  #wpm,
+  #accuracy,
+  #time {
+    margin-left: 0;
+  }
+}
