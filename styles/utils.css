@@ -20,6 +20,7 @@
 .container {
   max-width: 1536px;
   margin-inline: auto;
+  padding-inline: 0.5rem;
 }
 
 .btn,
@@ -91,3 +92,4 @@ input {
     width: 100%;
   }
 }
+
